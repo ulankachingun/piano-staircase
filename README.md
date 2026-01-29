@@ -1,79 +1,49 @@
 # Piano Staircase → Gesture-Controlled Lightbar
 ## Overview
 
+This project began as an attempt to build an interactive piano staircase, where stepping on different stairs would trigger musical notes. The system was designed using ultrasonic sensors to detect position and an MP3 module to play corresponding sounds.
 
+Due to time constraints and hardware limitations, the full staircase system could not be completed. The project was successfully pivoted into a gesture-controlled RGB lightbar, which uses ultrasonic sensing to map hand position to real-time lighting effects.
 
-This project began as an attempt to build an interactive piano staircase using ultrasonic sensors and an MP3 module to trigger musical notes as users stepped on different stairs. Due to time and hardware constraints, the project pivoted into a gesture controlled RGB lightbar, which maps hand position to dynamic lighting effects.
+Date Started: March 28rd 2024
 
-The project documents both the original concept and the final working system, focusing on rapid prototyping, failure analysis, and iteration under real constraints.
+Date Finished: May 4th 2024
 
-Original Concept: Piano Staircase
+This project focused on rapid prototyping, physical interaction design, and making practical engineering decisions under real world constraints.
 
-The goal was to create a staircase where each step would:
+## Project Goal
 
-Detect a user’s presence using ultrasonic sensors
+The original objective was to design an interactive staircase that:
 
-Trigger a corresponding piano note via an MP3 module
+Detects user position using ultrasonic sensors
 
-Provide an engaging, interactive musical experience in a public space
+Triggers piano notes mapped to individual steps
 
-Planned Features
+Creates a playful, immersive musical experience
 
-Multiple ultrasonic sensors (one per stair)
+After pivoting, the revised goal became:
 
-MP3 module for audio playback
+Demonstrate reliable ultrasonic distance sensing
 
-Microcontroller to handle sensor input and sound output
+Map continuous sensor input to real time visual feedback
 
-Real-time responsiveness for natural interaction
+Deliver a fully functional interactive system within the given time
 
-Challenges & Why It Didn’t Fully Work
+## How It Works
 
-While the concept was technically feasible, several constraints prevented full implementation:
+The 8 ultrasonic sensor measures where the user’s hand is
 
-Sensor interference: Multiple ultrasonic sensors caused cross-talk and unreliable distance readings when placed close together
+The microcontroller processes distance data in real time
 
-Timing limitations: Managing simultaneous sensor inputs and audio playback exceeded the project timeline
+Distance and location values are mapped to RGB color and brightness changes
 
-Hardware complexity: Synchronizing multiple sensors with sound output required more calibration and shielding than anticipated
+The LED strip responds instantly as the hand moves
 
-Time constraints: As this was a school-based project with a fixed deadline, there was insufficient time for deep iteration
+This preserved the core interaction concept while simplifying the system architecture.
 
-Rather than submitting a non-functional system, I chose to pivot the project while preserving its core interaction idea.
+## Hardware Used
 
-Pivot: Gesture-Controlled RGB Lightbar
-
-The project was re-designed into a lightbar that:
-
-Uses ultrasonic distance sensing to track hand position
-
-Maps distance values to RGB lighting patterns
-
-Demonstrates real-time interaction and visual feedback
-
-This pivot allowed me to:
-
-Validate sensor input handling
-
-Implement smooth mapping functions
-
-Deliver a fully working interactive system
-
-Final System Behavior
-
-Hand distance is continuously read by an ultrasonic sensor
-
-Distance values are mapped to:
-
-Color changes
-
-Brightness levels
-
-The system responds instantly, creating a fluid interaction
-
-Hardware Used
-
-Microcontroller (Arduino)
+Arduino Uno and Mega
 
 Ultrasonic distance sensor
 
@@ -81,50 +51,74 @@ Addressable RGB LED strip
 
 Power supply and wiring components
 
-Software Overview
+Breadboard to connect all the compontents
 
-Language: C++ (Arduino)
+## Software
 
-Core logic:
+Platform: Arduino
 
-Distance sampling and filtering
+## Logic:
 
-Mapping sensor values to RGB output
+Continuous distance sampling
 
-Non-blocking loop for real-time responsiveness
+Value mapping for color and brightness output
 
-What I Learned
+Non-blocking loop for smooth responsiveness
 
-Designing for scalability matters early in hardware projects
+# Note: The original staircase implementation involving multiple sensors and audio playback was not fully realized due to time and system complexity. This repository documents the working pivoted system and the design decisions behind it.
 
-Sensor interference can be a dominant constraint in physical systems
+## Build Process
 
-Pivoting is not failure — it’s a design decision
+Initial system was designed around multiple ultrasonic sensors
 
-Working systems with clear interaction are more valuable than incomplete ambition
+Early testing revealed the ultrasonic sensor interference with the mp3 df module originally used
 
-Future Improvements
+RGB lightbar was implemented to validate interaction design
 
-If I were to revisit the piano staircase concept, I would:
+## Challenges & Constraints
 
-Replace ultrasonic sensors with pressure sensors or IR break beams
+Ultrasonic sensor interference in close proximity
 
-Use better sensor isolation and shielding
+Ultrasonic sensor interference with the mp3 df module originally used
 
-Implement distributed microcontrollers per stair
+Limited time for multi-sensor calibration
 
-Separate audio playback from sensor handling
+Increased system complexity when combining sensing and audio
 
-Why This Project Matters
+Need to deliver a functional system before the deadline
 
-This project represents my first experience with:
+## What I Learned
 
-Translating a large-scale interactive idea into hardware
+System scalability should be considered early in hardware design
 
-Recognizing design limitations early
+Simpler architectures are often more reliable under constraints
 
-Making informed trade-offs under constraints
+Pivoting can preserve core ideas while improving outcomes
 
-It directly influenced my later projects, which place stronger emphasis on robust interaction design and iteration.
+Interaction quality matters more than feature count
 
-📸 Media
+## Future Improvements
+
+If rebuilt today, I would:
+
+Replace ultrasonic sensors with pressure or IR-based sensing
+
+Use distributed controllers per stair for scalability
+
+Separate sensing and audio playback subsystems
+
+Revisit the full staircase implementation with more time
+
+## Media
+
+Combined demo video showing:
+
+Original staircase concept testing
+
+Final gesture-controlled RGB lightbar behavior
+
+
+
+## Why This Project Matters
+
+This project represents my first experience recognizing system limitations and making informed design trade-offs. The lessons learned directly influenced later projects that emphasize robustness, modularity, and interaction design.
